@@ -1,18 +1,28 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private TextMeshProUGUI _playerHealth;
+    public static UIManager instance { get; private set; }
+
+    private void Awake()
     {
-        
+        if (instance == null)
+            instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void DecreasePlayerHealth(float damage)
     {
-        
+        float currentHealth = Convert.ToSingle(_playerHealth.text);
+        if (currentHealth <= 0)
+        {
+            
+        }
+        _playerHealth.text = Convert.ToString(currentHealth - damage);
     }
 }

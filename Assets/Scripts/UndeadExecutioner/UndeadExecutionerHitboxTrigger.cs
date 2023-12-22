@@ -9,7 +9,7 @@ public class UndeadExecutionerHitboxTrigger : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            GameManager.instance.
+            GameManager.instance.DecreaseHealth(collision.GetComponent<Damageable>(), 10);
         }
     }
 }

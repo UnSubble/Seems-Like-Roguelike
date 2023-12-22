@@ -29,7 +29,6 @@ public class UndeadExecutionerAttackTrigger : MonoBehaviour
             if (_parentMovement.animator.GetInteger("State") == 1)
             {
                 _parentMovement.animator.SetInteger("State", 0);
-                _parentMovement.animator.Play("Idle");
             }
                
         }         

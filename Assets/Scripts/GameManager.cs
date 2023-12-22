@@ -9,10 +9,13 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         if (instance == null)
-        {
-            instance = this;
-        }     
+            instance = this;  
     }
 
-
+    public void DecreaseHealth(Damageable ally, float damage)
+    {
+        ally.TakeDamage(damage);
+        if (ally is PlayerHealthController)
+            UIManager.instance.DecreasePlayerHealth(damage);
+    }
 }
