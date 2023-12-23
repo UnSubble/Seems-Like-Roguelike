@@ -1,15 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
-public class UndeadExecutionerHandler : MonoBehaviour, Damageable
+public class UndeadExecutionerHandler : EnemyBoss
 {
     [SerializeField]
-    private float _health;
+    private int _reloadSummonTime;
+    [SerializeField]
+    private float _playerDistanceForSkill;
     private UndeadExecutionerMovement _movement;
-    public bool IsAlive => _health > 0;
+    private int _timer;
 
-    public void TakeDamage(float damage)
+    public override void TakeDamage(float damage)
     {
         throw new System.NotImplementedException();
     }
@@ -18,17 +19,31 @@ public class UndeadExecutionerHandler : MonoBehaviour, Damageable
     void Start()
     {
         _movement = GetComponent<UndeadExecutionerMovement>();
+        _timer = 0;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+        if (_timer < _reloadSummonTime)
+            _timer++;
+        else if (Vector3.Distance(_playerMovement.transform.position, transform.position) > _playerDistanceForSkill)
+        {
+            _animator.Play("Skill");
+            _timer = 0;
+            _movement.triggered = true;
+        }
     }
 
     public void InterruptAttackAnimation()
     {
         if (_movement.animator.GetInteger("State") == 0)
             _movement.animator.Play("Idle");
+    }
+
+    public void SummonSouls()
+    {
+        _movement.triggered = false;
+        Debug.Log("Summoned");
     }
 }

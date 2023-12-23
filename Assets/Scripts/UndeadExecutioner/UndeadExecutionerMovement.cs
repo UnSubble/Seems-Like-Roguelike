@@ -33,6 +33,10 @@ public class UndeadExecutionerMovement : MonoBehaviour
             {
                 FollowPlayer();
             }
+            else
+            {
+                _rb.velocity = Vector3.zero;
+            }
             RotatePlayer();
         }
         else

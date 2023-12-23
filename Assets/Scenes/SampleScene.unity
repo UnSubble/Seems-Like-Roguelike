@@ -700,7 +700,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a94b801dd562441bb3bc567e4db0a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerMovement: {fileID: 292857511}
   _health: 100
+  _animator: {fileID: 557862979}
+  _reloadSummonTime: 200
+  _playerDistanceForSkill: 2.5
 --- !u!1 &679145150
 GameObject:
   m_ObjectHideFlags: 0
