@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-public class UndeadExecutionerHandler : EnemyBoss
+public class UndeadExecutionerHandler : Boss
 {
     [SerializeField]
     private int _reloadSummonTime;
@@ -9,11 +9,6 @@ public class UndeadExecutionerHandler : EnemyBoss
     private float _playerDistanceForSkill;
     private UndeadExecutionerMovement _movement;
     private int _timer;
-
-    public override void TakeDamage(float damage)
-    {
-        throw new System.NotImplementedException();
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +28,11 @@ public class UndeadExecutionerHandler : EnemyBoss
             _timer = 0;
             _movement.triggered = true;
         }
+    }
+
+    public override void TakeDamage(float damage)
+    {
+        throw new System.NotImplementedException();
     }
 
     public void InterruptAttackAnimation()

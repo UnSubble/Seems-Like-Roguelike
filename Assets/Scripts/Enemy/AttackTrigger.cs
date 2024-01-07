@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class EnemyBoss : Enemy
+public class AttackTrigger : MonoBehaviour
 {
+    
 }
