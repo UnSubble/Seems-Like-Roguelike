@@ -1,15 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance {  get; private set; }
+    public static GameManager Instance {  get; private set; }
+    public static readonly float CONTINUOUS_ATTACK_DELAY = 0.2f;
 
     private void Awake()
     {
-        if (instance == null)
-            instance = this;  
+        if (Instance == null)
+            Instance = this;  
     }
 
     public void DecreaseHealth(Damageable ally, float damage)
